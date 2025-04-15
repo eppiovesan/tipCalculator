@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">tipCalculator</string>
+    <string name="descricao_resultado">Resultado por pessoa:</string>
+</resources>
