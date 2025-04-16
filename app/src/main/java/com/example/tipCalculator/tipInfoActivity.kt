@@ -5,17 +5,24 @@ import android.content.Intent
 import android.os.Bundle
 import android.provider.MediaStore.Audio.Radio
 import android.widget.Button
+import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
+import org.w3c.dom.Text
+
 //import com.kolydas.aboutme.databinding.ActivityMainBinding
+
+private lateinit var edt_OutroPercentual: EditText
 
 
 class tipInfoActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tip_info)
+        edt_OutroPercentual = findViewById<TextInputEditText>(R.id.edt_outro_percentual)
+
 
         val rb1 = findViewById<RadioButton>(R.id.rb_0)
         val rb2 = findViewById<RadioButton>(R.id.rb_10)
@@ -27,7 +34,10 @@ class tipInfoActivity: AppCompatActivity() {
         var novo_valor:Int = 0
         var novo_valorStr: String = ""
 
-        sincronizaRadioButtons(rb1, rb2, rb3, rb4, rb5, rb6)
+        val edt_OutroPercentual = findViewById<TextInputEditText>(R.id.edt_outro_percentual)
+
+
+        configuraRadioButtons(rb1, rb2, rb3, rb4, rb5, rb6)
 
         var edt_numero_pessoas = findViewById<TextInputEditText>(R.id.edt_numero_pessoas)
         edt_numero_pessoas.setText("1")
@@ -49,6 +59,10 @@ class tipInfoActivity: AppCompatActivity() {
         }
 
 
+
+
+
+
         val btn_calcular = findViewById<Button>(R.id.btn_calcular)
 
         btn_calcular.setOnClickListener {
@@ -59,11 +73,12 @@ class tipInfoActivity: AppCompatActivity() {
 
 
     private var isInternalChange = false
-    private fun sincronizaRadioButtons(vararg radioButtons: RadioButton) {
+    private fun configuraRadioButtons(vararg radioButtons: RadioButton) {
         //ao chamar a activity passa aqui para carregar as opções
         for (i in radioButtons.indices) {
             val radio = radioButtons[i]
             radio.setOnCheckedChangeListener { buttonView, isChecked ->
+
                 if (isInternalChange || !isChecked) return@setOnCheckedChangeListener
 
                 // sempre passa aqui ao clicar em uma opção
@@ -74,6 +89,9 @@ class tipInfoActivity: AppCompatActivity() {
                         radioButtons[j].isChecked = false
                     }
                 }
+
+                // o edit para digitar % de gorjeta só é habilita quando a opção Outro Valor estiver marcada
+                edt_OutroPercentual.isEnabled = (buttonView.id == R.id.rb_Outro)
                 isInternalChange = false
             }
         }
