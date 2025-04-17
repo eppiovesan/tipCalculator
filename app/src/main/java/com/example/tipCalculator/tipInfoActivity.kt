@@ -9,21 +9,26 @@ import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.addTextChangedListener
 import com.google.android.material.textfield.TextInputEditText
 import org.w3c.dom.Text
-
 //import com.kolydas.aboutme.databinding.ActivityMainBinding
 
-private lateinit var edt_OutroPercentual: EditText
+private lateinit var edtOutroPercentual: EditText
+private var percGorjeta: Float = 0.0f
+private var outroPercGorjeta: Float = 0.0f
 
 
 class tipInfoActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tip_info)
-        edt_OutroPercentual = findViewById<TextInputEditText>(R.id.edt_outro_percentual)
 
+        // Variáveis locais + Atribuições
 
+        //[Componentes]
+
+        //Radio button
         val rb1 = findViewById<RadioButton>(R.id.rb_0)
         val rb2 = findViewById<RadioButton>(R.id.rb_10)
         val rb3 = findViewById<RadioButton>(R.id.rb_15)
@@ -31,47 +36,66 @@ class tipInfoActivity: AppCompatActivity() {
         val rb5 = findViewById<RadioButton>(R.id.rb_25)
         val rb6 = findViewById<RadioButton>(R.id.rb_Outro)
 
-        var novo_valor:Int = 0
-        var novo_valorStr: String = ""
-
-        val edt_OutroPercentual = findViewById<TextInputEditText>(R.id.edt_outro_percentual)
 
 
+        //Input Text
+        edtOutroPercentual = findViewById<TextInputEditText>(R.id.edt_outro_percentual)
+        val edtNumeroPessoas = findViewById<TextInputEditText>(R.id.edt_numero_pessoas)
+        val edtValorConta = findViewById<TextInputEditText>(R.id.edt_valor_conta)
+
+        //Buttons
+        val btnUp = findViewById<Button>(R.id.btn_up)
+        val btnDown = findViewById<Button>(R.id.btn_down)
+        val btnCalcular = findViewById<Button>(R.id.btn_calcular)
+
+        //[Internas]
+        var novoValor:Int = 0
+        var novoValorStr: String = ""
+
+
+
+        //Inicialização
         configuraRadioButtons(rb1, rb2, rb3, rb4, rb5, rb6)
+        edtNumeroPessoas.setText("1")
 
-        var edt_numero_pessoas = findViewById<TextInputEditText>(R.id.edt_numero_pessoas)
-        edt_numero_pessoas.setText("1")
 
-        val btn_up = findViewById<Button>(R.id.btn_up)
-        btn_up.setOnClickListener {
-            novo_valor = buttonUpClick(edt_numero_pessoas.text.toString().toInt())
-            novo_valorStr = novo_valor.toString()
+        // Ações
+        btnUp.setOnClickListener {
+            novoValor = buttonUpClick(edtNumeroPessoas.text.toString().toInt())
+            novoValorStr = novoValor.toString()
 
-            edt_numero_pessoas.setText(novo_valorStr)
-        }
-
-        val btn_down = findViewById<Button>(R.id.btn_down)
-        btn_down.setOnClickListener {
-            novo_valor = buttonDownClick(edt_numero_pessoas.text.toString().toInt())
-            novo_valorStr = novo_valor.toString()
-
-            edt_numero_pessoas.setText(novo_valorStr)
+            edtNumeroPessoas.setText(novoValorStr)
         }
 
 
+        btnDown.setOnClickListener {
+            novoValor = buttonDownClick(edtNumeroPessoas.text.toString().toInt())
+            novoValorStr = novoValor.toString()
 
-
-
-
-        val btn_calcular = findViewById<Button>(R.id.btn_calcular)
-
-        btn_calcular.setOnClickListener {
-            startActivity(Intent(this, resultActivity::class.java))
-
+            edtNumeroPessoas.setText(novoValorStr)
         }
+
+        btnCalcular.setOnClickListener {
+           // startActivity(Intent(this, resultActivity::class.java))
+            println(percGorjeta)
+        }
+
+
+        // atribuo o valor à variável logo depois que digita alguma informação no campo
+        edtOutroPercentual.addTextChangedListener {
+            val texto = it.toString()
+            if (texto.isNotEmpty()) {
+                outroPercGorjeta = texto.toFloat() / 100
+            } else {
+                outroPercGorjeta = 0.0f
+            }
+        }
+
+
     }
 
 
+    //Funções
     private var isInternalChange = false
     private fun configuraRadioButtons(vararg radioButtons: RadioButton) {
         //ao chamar a activity passa aqui para carregar as opções
@@ -91,13 +115,32 @@ class tipInfoActivity: AppCompatActivity() {
                 }
 
                 // o edit para digitar % de gorjeta só é habilita quando a opção Outro Valor estiver marcada
-                edt_OutroPercentual.isEnabled = (buttonView.id == R.id.rb_Outro)
+                edtOutroPercentual.isEnabled = (buttonView.id == R.id.rb_Outro)
+
+                // atribuindo valor à variável perc_gorjeta de acordo com o radio button selecionado
+                    percGorjeta = when (buttonView.id){
+                        R.id.rb_0 -> 0.0f
+                        R.id.rb_10 -> 0.10f
+                        R.id.rb_15 -> 0.15f
+                        R.id.rb_20 -> 0.20f
+                        R.id.rb_25 -> 0.25f
+
+                        R.id.rb_Outro -> {
+                            // Quando o "Outro" for selecionado, habilita o campo de texto
+                            edtOutroPercentual.isEnabled = true
+                            // mantenho perc_gorjeta até o input text ser preenchido
+                            outroPercGorjeta
+                        }
+                        else -> 0.0f
+                    }
+                    if (edtOutroPercentual.isEnabled  && edtOutroPercentual.text.toString().isNotEmpty()) {
+                        percGorjeta = outroPercGorjeta
+                    }
+
                 isInternalChange = false
             }
         }
     }
-
-
     private fun buttonUpClick (valorAtual:Int): Int {
         var novo_valor = valorAtual + 1
         return novo_valor
