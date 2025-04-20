@@ -164,7 +164,7 @@
             app:layout_constraintTop_toBottomOf="@+id/txt_qtde_pessoas" />
 
         <TextView
-            android:id="@+id/textView15"
+            android:id="@+id/txt_valor_gorjeta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"

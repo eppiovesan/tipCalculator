@@ -48,7 +48,11 @@ class tipInfoActivity: AppCompatActivity() {
         val rb5 = findViewById<RadioButton>(R.id.rb_25)
         val rb6 = findViewById<RadioButton>(R.id.rb_Outro)
 
-
+        percGorjeta = 0.0f
+        outroPercGorjeta = 0.0f
+        valorAtualNumeroPessoas = 1
+        valorAtualOutroPercentual = 0f
+        opcSelecionadaPercGorjeta = false
 
         //Input Text
         edtOutroPercentual = findViewById<TextInputEditText>(R.id.edt_outro_percentual)

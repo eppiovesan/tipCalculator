@@ -17,7 +17,7 @@ class sharedViewModel: ViewModel() {
 
     fun calculaValorFinalConta (): Float {
         if (numeroPessoas > 0){
-            (valorConta + valorGorjeta)/ numeroPessoas
+            valorFinalConta = (valorConta + valorGorjeta)/ numeroPessoas
         }
         else {
             valorFinalConta = 0.0f
