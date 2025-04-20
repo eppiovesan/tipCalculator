@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name=".meuApk"
+        android:name=".tipCalculator"
         android:theme="@style/Theme.tipCalculator"
         tools:targetApi="31" >
 

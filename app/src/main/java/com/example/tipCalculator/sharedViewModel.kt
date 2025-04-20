@@ -3,12 +3,27 @@ package com.example.tipCalculator
 import androidx.lifecycle.ViewModel
 
 class sharedViewModel: ViewModel() {
-    var numero1: Float = 0f
-    var numero2: Float = 0f
+    var valorConta: Float = 0f
+    var numeroPessoas: Int = 0
+    var percentualGorjeta: Float = 0f
+    var valorGorjeta: Float = 0f
+    var valorFinalConta: Float = 0f
 
 
-    fun getSoma(): Float {
-        var resultado: Float = numero1 + numero2
-        return resultado
+    fun calculaGorjeta(): Float {
+        valorGorjeta = (valorConta * percentualGorjeta)
+        return valorGorjeta
     }
+
+    fun calculaValorFinalConta (): Float {
+        if (numeroPessoas > 0){
+            (valorConta + valorGorjeta)/ numeroPessoas
+        }
+        else {
+            valorFinalConta = 0.0f
+        }
+
+        return valorFinalConta
+    }
+
 }
