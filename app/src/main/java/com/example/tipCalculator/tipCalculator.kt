@@ -1,7 +1,7 @@
 package com.example.tipCalculator
 import android.app.Application
 
-class meuApk: Application(){
+class tipCalculator: Application(){
     lateinit var sharedViewModel: sharedViewModel
 
     override fun onCreate(){
