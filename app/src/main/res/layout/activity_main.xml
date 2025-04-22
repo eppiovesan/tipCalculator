@@ -11,10 +11,9 @@
         android:id="@+id/imageView3"
         android:layout_width="match_parent"
         android:layout_height="@+id/constraintLayout"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        android:adjustViewBounds="true"
+        app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/img" />
 
@@ -26,18 +25,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3">
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.0">
 
         <Button
             android:id="@+id/btn_iniciar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:layout_marginStart="36dp"
             android:layout_marginEnd="36dp"
             android:layout_marginBottom="36dp"
-
-            android:backgroundTint="@color/blue_800"
+            style="@style/BotaoPadrao"
             android:text="Iniciar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
