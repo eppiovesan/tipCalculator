@@ -134,6 +134,13 @@ class tipInfoActivity: baseActivity() {
             false
         }
 
+        //seta o campo para 1 quando ele estiver vazio e perder o foco
+        edtNumeroPessoas.setOnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus && edtNumeroPessoas.text.toString().isEmpty()) {
+                atualizaNumeroPessoas(1)
+            }
+        }
+
 
 
 
