@@ -31,11 +31,12 @@ class resultActivity: baseActivity() {
 
         val btnRecalcular = findViewById<Button>(R.id.btn_reacalcular)
 
-        tvValorConta.text = valorConta.toString()
+        tvValorConta.text = "R$%.2f".format(valorConta)
         tvNumeroPessoas.text = numeroPessoas.toString()
-        tvPercentualGorjeta.text = percentualGorjeta.toString()
-        tvValorGorjeta.text = valorGorjeta.toString()
-        tvValorPorPessoa.text = valorPessoa.toString()
+        tvPercentualGorjeta.text = percentualGorjeta.toString() + "%"
+        tvValorGorjeta.text = "R$%.2f".format(valorGorjeta)
+        tvValorPorPessoa.text = "R$%.2f".format(valorPessoa)
+
 
         btnRecalcular.setOnClickListener {
             startActivity(Intent(this,tipInfoActivity::class.java))
