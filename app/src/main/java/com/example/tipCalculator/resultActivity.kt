@@ -3,18 +3,18 @@ package com.example.tipCalculator
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.findViewTreeViewModelStoreOwner
+import androidx.appcompat.widget.Toolbar
 
-class resultActivity: AppCompatActivity() {
+class resultActivity: baseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
 
         val viewModel = (application as tipCalculator).sharedViewModel
+
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setupToolbar(toolbar, "Calculadora de Gorjeta", true)
 
 
         val valorConta = viewModel.valorConta

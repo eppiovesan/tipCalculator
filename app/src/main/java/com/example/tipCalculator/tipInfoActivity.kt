@@ -1,21 +1,17 @@
 package com.example.tipCalculator
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.provider.MediaStore.Audio.Radio
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
 import android.widget.RadioButton
-import android.widget.RadioGroup
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.widget.addTextChangedListener
-import androidx.core.widget.doAfterTextChanged
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
-import org.w3c.dom.Text
-import kotlin.system.exitProcess
 
 //import com.kolydas.aboutme.databinding.ActivityMainBinding
 
@@ -30,9 +26,10 @@ private lateinit var btnDown: Button
 private lateinit var btnUp: Button
 private lateinit var btnCalcular: Button
 private var opcSelecionadaPercGorjeta = false
+private var isInternalChange = false
 
 
-class tipInfoActivity: AppCompatActivity() {
+class tipInfoActivity: baseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tip_info)
@@ -47,6 +44,10 @@ class tipInfoActivity: AppCompatActivity() {
         val rb4 = findViewById<RadioButton>(R.id.rb_20)
         val rb5 = findViewById<RadioButton>(R.id.rb_25)
         val rb6 = findViewById<RadioButton>(R.id.rb_Outro)
+
+        //toolbar
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setupToolbar(toolbar, "Calculadora de Gorjeta", true)
 
         percGorjeta = 0.0f
         outroPercGorjeta = 0.0f
@@ -63,6 +64,8 @@ class tipInfoActivity: AppCompatActivity() {
         btnUp = findViewById<Button>(R.id.btn_up)
         btnDown = findViewById<Button>(R.id.btn_down)
         btnCalcular = findViewById<Button>(R.id.btn_calcular)
+
+        //atualizaNumeroPessoas(valorAtualNumeroPessoas)
 
         //[Internas]
         var novoValor:Int
@@ -128,7 +131,9 @@ class tipInfoActivity: AppCompatActivity() {
                 valorAtualNumeroPessoas = 0
                 btnDown.isEnabled = false
             }
+            false
         }
+
 
 
 
