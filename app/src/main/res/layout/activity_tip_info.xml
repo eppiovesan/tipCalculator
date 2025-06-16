@@ -20,11 +20,10 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
+            style="@style/Toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
             app:titleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -59,11 +58,13 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edt_valor_conta"
+                style="@style/TextoEdit"
                 android:layout_width="match_parent"
                 android:layout_height="36dp"
                 android:background="@drawable/rounded_bg"
                 android:fontFamily="@font/roboto_light"
                 android:hint="Ex: 150,00"
+                android:textColorHint="@color/hint"
                 android:inputType="numberDecimal"
                 android:maxLength="6"
                 android:paddingStart="12dp"
@@ -128,13 +129,13 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edt_numero_pessoas"
+                    style="@style/TextoEdit"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:background="@color/transparent"
                     android:gravity="center"
                     android:inputType="number"
-                    android:maxLength="2"
-                    android:textColor="@color/blue_800" />
+                    android:maxLength="2" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
@@ -266,12 +267,14 @@
                 android:background="@drawable/rounded_bg"
                 android:fontFamily="@font/roboto_light"
                 android:hint="Ex: 12% "
+                android:textColorHint="@color/hint"
                 android:paddingStart="12dp"
                 android:textSize="12sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:id="@+id/textView"
+            style="@style/TextoEdit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"

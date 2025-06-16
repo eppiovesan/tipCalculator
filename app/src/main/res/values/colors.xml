@@ -12,9 +12,18 @@
 
 
     <color name="blue_800">#0B3D91</color>
+    <color name="blue_400">#4169E1</color>
+    <color name="blue_300">#246BCE</color>
+    <color name="blue_200">#6495ED</color>
+
+
+
     <color name="grey_100">#F5F5F5</color>
+    <color name="grey_300">#F6F6F6</color> <!-- Cinza cimento-->
     <color name="grey_500">#C0C0C0</color>
     <color name="grey_700">#696969</color>
+    <color name="grey_900">#1E1E1E</color>
+    <color name="grey_200">#AAAAAA</color>
 
 
 </resources>

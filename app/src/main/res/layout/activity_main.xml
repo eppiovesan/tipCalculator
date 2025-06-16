@@ -31,6 +31,7 @@
         <Button
             android:id="@+id/btn_iniciar"
             style="@style/BotaoPadrao"
+            android:backgroundTint="@null"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="36dp"
@@ -43,12 +44,12 @@
 
         <TextView
             android:id="@+id/textView13"
+            style="@style/TextoSecundario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_light"
             android:gravity="center"
             android:text="Divida a conta rapidinho. Sem complicação."
-            android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -56,13 +57,13 @@
 
         <TextView
             android:id="@+id/textView12"
+            style="@style/TextoPadrao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
             android:fontFamily="@font/roboto_medium"
             android:gravity="center"
             android:text="Calculadora de Gorjeta"
-            android:textColor="@color/grey_700"
             android:textSize="36sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
