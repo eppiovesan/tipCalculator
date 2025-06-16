@@ -11,10 +11,9 @@
         android:id="@+id/imageView3"
         android:layout_width="match_parent"
         android:layout_height="@+id/constraintLayout"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        android:adjustViewBounds="true"
+        app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/img" />
 
@@ -26,32 +25,31 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3">
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.0">
 
         <Button
             android:id="@+id/btn_iniciar"
+            style="@style/BotaoPadrao"
+            android:backgroundTint="@null"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:layout_marginStart="36dp"
             android:layout_marginEnd="36dp"
-            android:layout_marginBottom="36dp"
-
-            android:backgroundTint="@color/blue_800"
+            android:layout_marginBottom="16dp"
             android:text="Iniciar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/textView13"
+            style="@style/TextoSecundario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_light"
             android:gravity="center"
             android:text="Divida a conta rapidinho. Sem complicação."
-            android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -59,13 +57,13 @@
 
         <TextView
             android:id="@+id/textView12"
+            style="@style/TextoPadrao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
             android:fontFamily="@font/roboto_medium"
             android:gravity="center"
             android:text="Calculadora de Gorjeta"
-            android:textColor="@color/grey_700"
             android:textSize="36sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
