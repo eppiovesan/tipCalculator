@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
 
 class resultActivity: baseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,7 +16,6 @@ class resultActivity: baseActivity() {
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setupToolbar(toolbar, "Calculadora de Gorjeta", true)
-
 
         val valorConta = viewModel.valorConta
         val numeroPessoas = viewModel.numeroPessoas

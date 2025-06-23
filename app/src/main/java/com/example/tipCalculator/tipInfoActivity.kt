@@ -19,7 +19,7 @@ private lateinit var edtOutroPercentual: TextInputEditText
 private lateinit var edtNumeroPessoas: EditText
 private lateinit var edtValorConta: EditText
 private var percGorjeta: Float = 0.0f
-private var outroPercGorjeta: Float = 0.0f
+private var outroPercGorjeta:Float = 0.0f
 private var valorAtualNumeroPessoas: Int = 1
 private var valorAtualOutroPercentual: Float = 0f
 private lateinit var btnDown: Button
@@ -74,6 +74,7 @@ class tipInfoActivity: baseActivity() {
         //Inicialização
         configuraRadioButtons(rb1, rb2, rb3, rb4, rb5, rb6)
         btnDown.isEnabled = false
+        edtOutroPercentual.isEnabled = false
 
 
 
@@ -87,7 +88,6 @@ class tipInfoActivity: baseActivity() {
             if (novoValorOutroPercentual != null){
                 if (novoValorOutroPercentual != valorAtualOutroPercentual){
                     valorAtualOutroPercentual = novoValorOutroPercentual
-                    edtOutroPercentual.setText(valorAtualOutroPercentual.toString())
                     edtOutroPercentual.setSelection(edtOutroPercentual.length())
                 }
             }
@@ -176,7 +176,7 @@ class tipInfoActivity: baseActivity() {
 
                 // o edit para digitar % de gorjeta só é habilita quando a opção Outro Valor estiver marcada
                 edtOutroPercentual.isEnabled = (buttonView.id == R.id.rb_Outro)
-
+                edtOutroPercentual.setText("")
                 // atribuindo valor à variável perc_gorjeta de acordo com o radio button selecionado
                     percGorjeta = when (buttonView.id){
                         R.id.rb_0 -> 0.0f

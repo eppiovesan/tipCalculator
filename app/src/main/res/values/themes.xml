@@ -2,9 +2,14 @@
     <!-- Base application theme. -->
     <style name="Theme.tipCalculator" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/grey_300</item>
+        <item name="colorPrimary">@color/grey_300</item>        
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/blue_800</item>
+
+        <item name="toolbarBackgroundColor">@color/grey_300</item>
+        <item name="toolbarTitleColor">@color/grey_700</item>
+
+        
         <!-- Customize your theme here. -->
     </style>
     <style name="BotaoPadrao">
@@ -27,7 +32,22 @@
         <item name="android:fontFamily">@font/roboto_light</item>
     </style>
 
+    <style name="TextoAzulResultado">
+        <item name="android:textColor">@color/blue_800</item>
+        <item name="android:fontFamily">@font/roboto_light</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+
     <color name="iconeBotao">@color/blue_800</color>
     <color name="rounded_bg">@color/grey_100</color>
     <color name="hint">@color/grey_700</color>
+
+    <style name="Toolbar">
+        <item name="backgroundTint">@color/grey_900</item>
+        <item name="android:textColor">@color/grey_100</item>
+        <item name="navigationIconTint">@color/grey_700</item>
+    </style>
+
+
 </resources>

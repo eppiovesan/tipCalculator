@@ -6,6 +6,11 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/grey_900</item>
         <!-- Customize your theme here. -->
+
+        <item name="toolbarBackgroundColor">@color/grey_500</item>
+        <item name="toolbarTitleColor">@color/grey_700</item>
+        <item name="colorControlNormal">@color/grey_700</item>
+
     </style>
 
     <style name="BotaoPadrao">
@@ -31,11 +36,19 @@
     <style name="Toolbar">
         <item name="backgroundTint">@color/grey_900</item>
         <item name="android:textColor">@color/grey_100</item>
-
+        <item name="navigationIconTint">@color/grey_700</item>
     </style>
+    
+    <style name="TextoAzulResultado">
+        <item name="android:textColor">@color/blue_200</item>
+        <item name="android:fontFamily">@font/roboto_light</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    
 
     <color name="iconeBotao">@color/blue_200</color>
     <color name="rounded_bg">@color/grey_500</color>
     <color name="hint">@color/grey_700</color>
+
 
 </resources>

@@ -20,9 +20,10 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
-            style="@style/Toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            android:background="?attr/toolbarBackgroundColor"
+            app:titleTextColor="?attr/toolbarTitleColor"
             android:minHeight="?attr/actionBarSize"
             app:titleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
             app:layout_constraintEnd_toEndOf="parent"
@@ -269,6 +270,8 @@
                 android:hint="Ex: 12% "
                 android:textColorHint="@color/hint"
                 android:paddingStart="12dp"
+                android:inputType="numberDecimal"
+                android:maxLength="6"
                 android:textSize="12sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
