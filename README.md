@@ -11,7 +11,6 @@ Esse projeto é um aplicativo android nativo desenvolvido na linguagem de progra
 <!-- You can add more screenshots here if you like -->
 
 <img src="https://github.com/user-attachments/assets/0f974da0-a269-4c6e-b9dd-952185d4a47d" width = 260 />
-<img src="https://github.com/user-attachments/assets/e776a9ea-2c70-4872-a277-bb074e59a948" width = 260 />
 <img src="https://github.com/user-attachments/assets/70423094-4b4a-42af-8521-3f4bba1cf214" width = 260 />
 <img src="https://github.com/user-attachments/assets/69574bae-b8c9-427f-9113-b56e24617f33" width = 260 />
 
