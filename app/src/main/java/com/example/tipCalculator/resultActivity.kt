@@ -3,19 +3,19 @@ package com.example.tipCalculator
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.findViewTreeViewModelStoreOwner
+import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
 
-class resultActivity: AppCompatActivity() {
+class resultActivity: baseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
 
         val viewModel = (application as tipCalculator).sharedViewModel
 
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setupToolbar(toolbar, "Calculadora de Gorjeta", true)
 
         val valorConta = viewModel.valorConta
         val numeroPessoas = viewModel.numeroPessoas
@@ -31,11 +31,12 @@ class resultActivity: AppCompatActivity() {
 
         val btnRecalcular = findViewById<Button>(R.id.btn_reacalcular)
 
-        tvValorConta.text = valorConta.toString()
+        tvValorConta.text = "R$%.2f".format(valorConta)
         tvNumeroPessoas.text = numeroPessoas.toString()
-        tvPercentualGorjeta.text = percentualGorjeta.toString()
-        tvValorGorjeta.text = valorGorjeta.toString()
-        tvValorPorPessoa.text = valorPessoa.toString()
+        tvPercentualGorjeta.text = percentualGorjeta.toString() + "%"
+        tvValorGorjeta.text = "R$%.2f".format(valorGorjeta)
+        tvValorPorPessoa.text = "R$%.2f".format(valorPessoa)
+
 
         btnRecalcular.setOnClickListener {
             startActivity(Intent(this,tipInfoActivity::class.java))
