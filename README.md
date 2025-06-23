@@ -1,8 +1,12 @@
 # Calculadora de Gorjeta
 Esse projeto é um aplicativo android nativo desenvolvido na linguagem de programação Kotlin. Seu objetivo é calcular o valor por pessoa de uma conta de restaurante, bar ou similares, considerando alguns parâmetros como: valor da conta, % gorjeta, número de pessoas que são fornecidos pelo usuário, no retorno exibe o gasto e também um detalhamento de cada informação fornecida.
 
-
-
+##  🚀 Funcionalidades
+- Definir o valor da conta
+- Selecionar gorjeta por opções pré-definidas (0%, 10%, 15%, 20%, 25%) ou inserir valor customizado
+- Indicar número de pessoas que dividirão a conta
+- Exibe o valor individual da gorjeta e total por pessoa
+  
 ## :camera_flash: Screenshots
 <!-- You can add more screenshots here if you like -->
 
